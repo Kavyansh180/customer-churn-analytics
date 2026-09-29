@@ -1,0 +1,48 @@
+feature_index,feature,coefficient,odds_ratio,abs_coefficient,direction,feature_group
+1,num__tenure,-1.3553452409159346,0.25785825586239275,1.3553452409159346,Decreases Churn Risk (Negative),numerical
+40,cat__Contract_Two year,-0.7677602208118064,0.4640512775912381,0.7677602208118064,Decreases Churn Risk (Negative),categorical
+17,cat__InternetService_DSL,-0.6455643251505034,0.5243665453656131,0.6455643251505034,Decreases Churn Risk (Negative),categorical
+3,num__TotalCharges,0.6443595343072479,1.9047667007998181,0.6443595343072479,Increases Churn Risk (Positive),numerical
+38,cat__Contract_Month-to-month,0.6111180130791437,1.8424901758121177,0.6111180130791437,Increases Churn Risk (Positive),categorical
+18,cat__InternetService_Fiber optic,0.6016547495379039,1.8251364466692783,0.6016547495379039,Increases Churn Risk (Positive),categorical
+2,num__MonthlyCharges,-0.5958579752003051,0.5510895418153685,0.5958579752003051,Decreases Churn Risk (Negative),numerical
+41,cat__PaperlessBilling_No,-0.29982161592045026,0.7409503826455726,0.29982161592045026,Decreases Churn Risk (Negative),categorical
+11,cat__Dependents_Yes,-0.2672651751576165,0.7654700609058336,0.2672651751576165,Decreases Churn Risk (Negative),categorical
+27,cat__DeviceProtection_No internet service,-0.2619066041570031,0.7695828961945739,0.2619066041570031,Decreases Churn Risk (Negative),categorical
+21,cat__OnlineSecurity_No internet service,-0.2619066041570031,0.7695828961945739,0.2619066041570031,Decreases Churn Risk (Negative),categorical
+19,cat__InternetService_No,-0.2619066041570031,0.7695828961945739,0.2619066041570031,Decreases Churn Risk (Negative),categorical
+24,cat__OnlineBackup_No internet service,-0.2619066041570031,0.7695828961945739,0.2619066041570031,Decreases Churn Risk (Negative),categorical
+30,cat__TechSupport_No internet service,-0.2619066041570031,0.7695828961945739,0.2619066041570031,Decreases Churn Risk (Negative),categorical
+33,cat__StreamingTV_No internet service,-0.2619066041570031,0.7695828961945739,0.2619066041570031,Decreases Churn Risk (Negative),categorical
+36,cat__StreamingMovies_No internet service,-0.2619066041570031,0.7695828961945739,0.2619066041570031,Decreases Churn Risk (Negative),categorical
+14,cat__MultipleLines_No,-0.2603042049561565,0.7708170637629046,0.2603042049561565,Decreases Churn Risk (Negative),categorical
+22,cat__OnlineSecurity_Yes,-0.24958287965087114,0.7791257044868976,0.24958287965087114,Decreases Churn Risk (Negative),categorical
+13,cat__PhoneService_Yes,-0.2361952825660224,0.7896264585944759,0.2361952825660224,Decreases Churn Risk (Negative),categorical
+31,cat__TechSupport_Yes,-0.22832033067580002,0.7958692776547673,0.22832033067580002,Decreases Churn Risk (Negative),categorical
+4,num__total_services,0.22080143170354147,1.247075776264285,0.22080143170354147,Increases Churn Risk (Positive),numerical
+20,cat__OnlineSecurity_No,0.20567330403826792,1.2283518408510303,0.20567330403826792,Increases Churn Risk (Positive),categorical
+43,cat__PaymentMethod_Bank transfer (automatic),-0.20179439408605926,0.8172629447637068,0.20179439408605926,Decreases Churn Risk (Negative),categorical
+29,cat__TechSupport_No,0.18441075506320678,1.202509658597466,0.18441075506320678,Increases Churn Risk (Positive),categorical
+32,cat__StreamingTV_No,-0.1826689779718779,0.8330438659715215,0.1826689779718779,Decreases Churn Risk (Negative),categorical
+45,cat__PaymentMethod_Electronic check,0.18149960243863172,1.1990140600279486,0.18149960243863172,Increases Churn Risk (Positive),categorical
+35,cat__StreamingMovies_No,-0.16736535196641486,0.8458905071145628,0.16736535196641486,Decreases Churn Risk (Negative),categorical
+9,cat__Partner_Yes,-0.16600064477459134,0.8470456880356863,0.16600064477459134,Decreases Churn Risk (Negative),categorical
+7,cat__gender_Male,-0.16451445112708854,0.8483054978852013,0.16451445112708854,Decreases Churn Risk (Negative),categorical
+44,cat__PaymentMethod_Credit card (automatic),-0.15982855748857072,0.8522898951615392,0.15982855748857072,Decreases Churn Risk (Negative),categorical
+39,cat__Contract_One year,-0.1491739720369345,0.861419239002565,0.1491739720369345,Decreases Churn Risk (Negative),categorical
+6,cat__gender_Female,-0.1413017286425038,0.8682273031263533,0.1413017286425038,Decreases Churn Risk (Negative),categorical
+8,cat__Partner_No,-0.1398155349950084,0.869518616361921,0.1398155349950084,Decreases Churn Risk (Negative),categorical
+34,cat__StreamingTV_Yes,0.1387594023592865,1.1488476567133925,0.1387594023592865,Increases Churn Risk (Positive),categorical
+25,cat__OnlineBackup_Yes,-0.12754180521093145,0.8802566157515136,0.12754180521093145,Decreases Churn Risk (Negative),categorical
+46,cat__PaymentMethod_Mailed check,-0.125692830633597,0.8818856934530843,0.125692830633597,Decreases Churn Risk (Negative),categorical
+37,cat__StreamingMovies_Yes,0.1234557763538075,1.1313999688037828,0.1234557763538075,Increases Churn Risk (Positive),categorical
+23,cat__OnlineBackup_No,0.08363222959833262,1.087228969638329,0.08363222959833262,Increases Churn Risk (Positive),categorical
+0,num__SeniorCitizen,0.07285324872207714,1.0755726836665769,0.07285324872207714,Increases Churn Risk (Positive),numerical
+12,cat__PhoneService_No,-0.06962089720356378,0.9327473600202432,0.06962089720356378,Decreases Churn Risk (Negative),categorical
+15,cat__MultipleLines_No phone service,-0.06962089720356378,0.9327473600202432,0.06962089720356378,Decreases Churn Risk (Negative),categorical
+10,cat__Dependents_No,-0.03855100461198474,0.9621826277366653,0.03855100461198474,Decreases Churn Risk (Negative),categorical
+28,cat__DeviceProtection_Yes,-0.024730907908695345,0.9755723955267634,0.024730907908695345,Decreases Churn Risk (Negative),categorical
+16,cat__MultipleLines_Yes,0.02410892239012404,1.0244018921165825,0.02410892239012404,Increases Churn Risk (Positive),categorical
+5,num__monthly_charges_diff,-0.02162651261270104,0.9786056636779937,0.02162651261270104,Decreases Churn Risk (Negative),numerical
+26,cat__DeviceProtection_No,-0.01917866770389299,0.9810040728387909,0.01917866770389299,Decreases Churn Risk (Negative),categorical
+42,cat__PaperlessBilling_Yes,-0.005994563849161026,0.994023367700212,0.005994563849161026,Decreases Churn Risk (Negative),categorical

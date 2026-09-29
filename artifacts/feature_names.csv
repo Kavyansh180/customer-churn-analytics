@@ -1,0 +1,48 @@
+feature_index,feature_name,feature_group
+0,num__SeniorCitizen,numerical
+1,num__tenure,numerical
+2,num__MonthlyCharges,numerical
+3,num__TotalCharges,numerical
+4,num__total_services,numerical
+5,num__monthly_charges_diff,numerical
+6,cat__gender_Female,categorical
+7,cat__gender_Male,categorical
+8,cat__Partner_No,categorical
+9,cat__Partner_Yes,categorical
+10,cat__Dependents_No,categorical
+11,cat__Dependents_Yes,categorical
+12,cat__PhoneService_No,categorical
+13,cat__PhoneService_Yes,categorical
+14,cat__MultipleLines_No,categorical
+15,cat__MultipleLines_No phone service,categorical
+16,cat__MultipleLines_Yes,categorical
+17,cat__InternetService_DSL,categorical
+18,cat__InternetService_Fiber optic,categorical
+19,cat__InternetService_No,categorical
+20,cat__OnlineSecurity_No,categorical
+21,cat__OnlineSecurity_No internet service,categorical
+22,cat__OnlineSecurity_Yes,categorical
+23,cat__OnlineBackup_No,categorical
+24,cat__OnlineBackup_No internet service,categorical
+25,cat__OnlineBackup_Yes,categorical
+26,cat__DeviceProtection_No,categorical
+27,cat__DeviceProtection_No internet service,categorical
+28,cat__DeviceProtection_Yes,categorical
+29,cat__TechSupport_No,categorical
+30,cat__TechSupport_No internet service,categorical
+31,cat__TechSupport_Yes,categorical
+32,cat__StreamingTV_No,categorical
+33,cat__StreamingTV_No internet service,categorical
+34,cat__StreamingTV_Yes,categorical
+35,cat__StreamingMovies_No,categorical
+36,cat__StreamingMovies_No internet service,categorical
+37,cat__StreamingMovies_Yes,categorical
+38,cat__Contract_Month-to-month,categorical
+39,cat__Contract_One year,categorical
+40,cat__Contract_Two year,categorical
+41,cat__PaperlessBilling_No,categorical
+42,cat__PaperlessBilling_Yes,categorical
+43,cat__PaymentMethod_Bank transfer (automatic),categorical
+44,cat__PaymentMethod_Credit card (automatic),categorical
+45,cat__PaymentMethod_Electronic check,categorical
+46,cat__PaymentMethod_Mailed check,categorical

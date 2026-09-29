@@ -1,0 +1,23 @@
+# Core Data Manipulation
+numpy>=1.23.0
+pandas>=2.0.0
+
+# Visualization & EDA
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Machine Learning & Serialization
+scikit-learn>=1.2.0
+joblib>=1.2.0
+
+# Serving & Validation
+fastapi>=0.100.0
+pydantic>=2.0.0
+uvicorn>=0.22.0
+
+# Web Dashboard & HTTP Client
+streamlit>=1.25.0
+requests>=2.28.0
+
+# Testing
+pytest>=7.4.0
