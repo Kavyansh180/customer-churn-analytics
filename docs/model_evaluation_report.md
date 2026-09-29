@@ -18,7 +18,7 @@ Both the primary interpretable model (**Logistic Regression**) and the nonlinear
 | **Gini Coefficient** | **0.6719** | **0.6351** | Normalized discriminatory index ($2 \times \text{AUC} - 1$) |
 | **KS Statistic** | **0.5066** | **0.4913** | Maximum separation between cumulative churner and non-churner CDFs |
 | **KS Optimal Threshold** | **0.3900** | **0.2733** | Probability threshold maximizing distribution divergence |
-| **Brier Score Loss** | **0.1401** | **0.1482** | Probability calibration & accuracy error (lower is better, 0.0 = perfect) |
+| **Brier Score Loss** | **0.1401** | **0.1482** | Probabilistic prediction accuracy error (lower is better, 0.0 = perfect) |
 | **Accuracy (@ 0.50)** | **0.8038** | **0.7861** | Overall fraction of correct predictions |
 | **Precision (@ 0.50)** | **0.6494** | **0.6254** | True Positives / Total Predicted Positive |
 | **Recall (@ 0.50)** | **0.5695** | **0.4866** | True Positives / Total Actual Positive Churners |
@@ -94,9 +94,10 @@ To translate continuous probabilities $\hat{p} = P(\text{Churn} = 1 \mid X)$ int
 
 ## 6. Probability Calibration Assessment & Reliability Diagram
 
-- **Brier Score Loss:** **0.1401** (Logistic Regression), confirming sharp, well-calibrated probabilities.
-- **Reliability Diagram Inspection:** In `artifacts/evaluation/logistic_calibration_curve.png`, empirical positive fractions closely track the 45-degree ideal calibration line across all 10 uniform probability bins.
-- **Operational Interpretation:** When Logistic Regression assigns a 60% probability to an account segment, approximately 60% of those customers actually churned historically.
+- **Brier Score Loss:** **0.1401** for Logistic Regression versus **0.1482** for Random Forest, indicating lower probabilistic prediction error for Logistic Regression on this hold-out test set.
+- **Reliability Diagram Assessment:** In `artifacts/evaluation/logistic_calibration_curve.png`, the reliability diagram provides an empirical calibration assessment of predicted probabilities, where empirical positive fractions across probability bins are compared against the 45-degree reference line.
+- **Operational Context:** The reliability diagram illustrates how empirical churn fractions align with predicted probability intervals across the sample.
+
 
 ---
 

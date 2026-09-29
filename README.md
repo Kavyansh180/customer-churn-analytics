@@ -344,13 +344,15 @@ Expected output: `99 passed, 10 warnings`
 
 ## 25. Limitations
 - **Observational Correlation:** Model coefficients describe historical statistical associations, not causal mechanisms. Retention incentives do not guarantee churn prevention.
-- **Uncalibrated Business Value:** The model outputs statistical probabilities on customer churn; it does not estimate customer Lifetime Value (LTV) or intervention ROI.
-- **Static Batch Calibration:** Models reflect a single snapshot; production environments require ongoing drift detection and scheduled retraining.
+- **Business Value & ROI:** The model outputs statistical probabilities on customer churn; it does not estimate customer Lifetime Value (LTV) or intervention ROI.
+
+- **Static Training Snapshot:** Models reflect a single snapshot; production environments require ongoing drift detection and scheduled retraining.
 - **Single-Node Prototype:** Designed for modular demonstration and lightweight serving; enterprise deployments require container orchestration and distributed message queues.
 
 ---
 
 ## 26. Interview-Relevant Project Explanation
-- **Why Logistic Regression over Random Forest?** On this 47-feature transformed space, Logistic Regression achieved a higher out-of-sample ROC-AUC (**0.8359** vs. **0.8175**), better probability calibration (Brier score **0.1401** vs. **0.1482**), and direct odds-ratio interpretability for stakeholders.
+- **Why Logistic Regression over Random Forest?** On this 47-feature transformed space, Logistic Regression achieved a higher out-of-sample ROC-AUC (**0.8359** vs. **0.8175**), lower probabilistic prediction error (Brier score **0.1401** vs. **0.1482**), and direct odds-ratio interpretability for stakeholders.
 - **How was Data Leakage Prevented?** Missing value imputation parameters, standard deviation / mean scaling values, and one-hot categorical vocabularies were learned strictly on the 80% training split. The hold-out test set and real-time API payloads are transformed using the persisted pipeline without re-fitting.
 - **Why Decoupled Architecture?** The Streamlit UI acts as a stateless HTTP client to the FastAPI microservice. The UI never imports Joblib or Scikit-Learn models, ensuring clear separation of concerns and independent service scalability.
+

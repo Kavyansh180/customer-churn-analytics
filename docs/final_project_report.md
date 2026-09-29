@@ -34,7 +34,8 @@ The project follows a decoupled, unidirectional data and service flow:
 │  • Random Forest (Benchmark, 300 Trees)                 │
 └─────────────────────────────────────────────────────────┘
             ↓
-[ Model Evaluation, KS / Gini / Calibration & Threshold Tuning ]
+[ Model Evaluation, KS / Gini / Calibration Assessment & Threshold Tuning ]
+
             ↓
 [ Serialized Artifacts: joblib / CSV / JSON ]
             ↓
@@ -246,7 +247,8 @@ The project maintains comprehensive test coverage across 9 distinct test suites 
 ## O. System Limitations & Boundaries
 
 1. **Non-Causal Interpretability:** High model coefficients indicate statistical association with historical churn, not proven direct causality. Offering a discount does not guarantee retention.
-2. **Uncalibrated Business Value:** Model outputs are empirical classification probabilities on the Telco dataset; they do not incorporate customer Lifetime Value (LTV) or margin metrics.
+2. **Business Value & Margin Metrics:** Model outputs are empirical classification probabilities on the Telco dataset; they do not incorporate customer Lifetime Value (LTV) or margin metrics.
+
 3. **Static Training Snapshot:** Models reflect a single snapshot; production environments require ongoing drift detection and scheduled retraining pipelines.
 4. **Single-Node Serving:** The current setup serves single requests locally and is not configured for distributed worker clusters or asynchronous streaming message queues.
 
