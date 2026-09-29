@@ -7,7 +7,7 @@
 
 Customer attrition poses a fundamental revenue risk in subscription businesses. The **Customer Churn Prediction & Retention Analytics System** is a complete, modular, and interview-ready machine learning solution engineered from raw data ingestion to production-style model serving and interactive decision-support visualization.
 
-Built on the industry-standard IBM Telco Customer Churn dataset (7,032 validated accounts), the system frames churn detection as a probabilistic classification task. It prioritizes model interpretability, statistical rigor, and strict prevention of data leakage. A tuned and calibrated **Logistic Regression** model serves as the primary inference engine, achieving an out-of-sample **ROC-AUC of 0.8359**, a **Gini coefficient of 0.6719**, and a **Kolmogorov-Smirnov (KS) statistic of 0.5066**. A nonlinear **Random Forest** classifier serves as an empirical benchmark (ROC-AUC: 0.8175).
+Built on the industry-standard IBM Telco Customer Churn dataset (7,032 validated accounts), the system frames churn detection as a probabilistic classification task. It prioritizes model interpretability, statistical rigor, and strict prevention of data leakage. A tuned **Logistic Regression** model with probabilistic predictions (evaluated using Brier score and calibration analysis) serves as the primary inference engine, achieving an out-of-sample **ROC-AUC of 0.8359**, a **Gini coefficient of 0.6719**, and a **Kolmogorov-Smirnov (KS) statistic of 0.5066**. A nonlinear **Random Forest** classifier serves as an empirical benchmark (ROC-AUC: 0.8175).
 
 Predictions are translated into four operational churn risk tiers (*Low Risk*, *Medium Risk*, *High Risk*, *Critical Risk*) with prescriptive retention guidance. The system is deployed via a high-performance **FastAPI** REST microservice and consumed by an interactive **Streamlit** dashboard over HTTP/JSON.
 
@@ -30,8 +30,8 @@ The project follows a decoupled, unidirectional data and service flow:
             ↓
 ┌─────────────────────────────────────────────────────────┐
 │                     Model Zoo                           │
-│  • Logistic Regression (Primary, C=0.1, L2)             │
-│  • Random Forest (Benchmark, 100 Estimators)            │
+│  • Logistic Regression (Primary, C=1.0, L2)             │
+│  • Random Forest (Benchmark, 300 Trees)                 │
 └─────────────────────────────────────────────────────────┘
             ↓
 [ Model Evaluation, KS / Gini / Calibration & Threshold Tuning ]
@@ -52,7 +52,8 @@ The project follows a decoupled, unidirectional data and service flow:
 
 ## C. Dataset Description & Data Cleaning
 
-- **Source Dataset:** IBM Telco Customer Churn (`WA_Fn-UseC_-Telco-Customer-Churn.csv`)
+- **Source Dataset:** IBM Telco Customer Churn sample dataset (`WA_Fn-UseC_-Telco-Customer-Churn.csv`).
+  - *Note:* The dataset is included for reproducibility in this repository. Users should verify the applicable terms from the original dataset source before redistribution or commercial use.
 - **Initial Volume:** 7,043 customer records across 21 raw columns.
 - **Target Variable:** `Churn` (`No` → 0, `Yes` → 1). Overall class distribution: 73.42% retained, 26.58% churned.
 
@@ -82,8 +83,8 @@ Comprehensive univariate, bivariate, and multivariate analysis revealed strong s
 
 Domain-specific feature engineering produced two high-signal synthetic features prior to column transformation:
 
-1. **`total_services` (Integer Count):** Sum of active subscriptions across 9 available telecom services (`PhoneService`, `MultipleLines`, `InternetService`, `OnlineSecurity`, `OnlineBackup`, `DeviceProtection`, `TechSupport`, `StreamingTV`, `StreamingMovies`). Captures account stickiness and multi-product integration.
-2. **`monthly_charges_diff` (Float Difference):** Calculated as `MonthlyCharges - (TotalCharges / (tenure + 1))`. Measures short-term pricing changes, recent promotional discounts ending, or rate increases relative to account historical average.
+1. **`total_services` (Integer Count):** Count of active subscribed services across 8 service-related columns (`PhoneService`, `MultipleLines`, `OnlineSecurity`, `OnlineBackup`, `DeviceProtection`, `TechSupport`, `StreamingTV`, `StreamingMovies`), ranging from 0 to 8. Captures account stickiness and multi-product integration.
+2. **`monthly_charges_diff` (Float Difference):** Calculated as `MonthlyCharges - (TotalCharges / max(tenure, 1))`. Measures short-term pricing changes, recent promotional discounts ending, or rate increases relative to account historical average.
 
 ---
 
@@ -104,7 +105,7 @@ Two classification architectures were trained with fixed random seed `random_sta
 
 1. **Logistic Regression (Primary Model):**
    - **Configuration:** `penalty='l2'`, `C=1.0`, `solver='lbfgs'`, `max_iter=1000`, `class_weight=None`.
-   - **Rationale:** High probabilistic calibration, linear interpretability via odds ratios, low computational overhead, and optimal decision boundary stability.
+   - **Rationale:** Probabilistic prediction capability, linear interpretability via odds ratios, low computational overhead, and optimal decision boundary stability.
 2. **Random Forest Classifier (Benchmark Model):**
    - **Configuration:** `n_estimators=300`, `max_depth=None`, `min_samples_split=2`, `min_samples_leaf=1`, `criterion='gini'`, `random_state=42`, `n_jobs=-1`.
    - **Rationale:** Non-linear ensemble baseline assessing whether multi-way feature interactions improve ranking performance.
@@ -126,7 +127,8 @@ Both models were evaluated on the exact same 1,407 hold-out test instances:
 | **Recall (@ 0.50)** | **56.95%** | 48.66% | Logistic Regression (+8.29%) |
 | **F1-Score (@ 0.50)** | **0.6068** | 0.5474 | Logistic Regression (+0.0594) |
 
-**Selection Decision:** Logistic Regression outperformed Random Forest across every statistical and operational dimension on unseen test data, while offering full coefficient interpretability and superior probability calibration (Brier score 0.1401 vs 0.1482).
+**Selection Decision:** Logistic Regression outperformed Random Forest across every statistical and operational dimension on unseen test data, while offering full coefficient interpretability and lower Brier loss score (0.1401 vs 0.1482).
+
 
 ---
 

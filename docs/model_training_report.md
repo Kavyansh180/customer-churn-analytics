@@ -10,7 +10,8 @@
 ### A. Primary Interpretable Model: Logistic Regression
 - **Interpretability:** Maps linear combinations of transformed features to log-odds of customer churn via the sigmoid function $\sigma(z) = \frac{1}{1 + e^{-z}}$.
 - **Business Transparency:** Every feature receives an explicit coefficient ($\beta$) and multiplicative Odds Ratio ($\exp(\beta)$), allowing business stakeholders to understand exactly which customer behaviors elevate churn risk.
-- **Calibrated Probabilities:** Naturally outputs continuous probability scores $P(\text{Churn} = 1 \mid X) \in [0.0, 1.0]$ suitable for downstream risk tiering (Low, Medium, High).
+- **Probabilistic Predictions:** Naturally outputs continuous probability scores $P(\text{Churn} = 1 \mid X) \in [0.0, 1.0]$ suitable for downstream risk tiering (Low, Medium, High).
+
 - **Computational Efficiency:** Fast training and microsecond inference latency, ideal for real-time REST API scoring.
 
 ### B. Benchmark Model: Random Forest Classifier

@@ -20,7 +20,8 @@ To provide decision-support capabilities for retention teams by generating proba
 ---
 
 ## 4. Dataset
-- **Source:** IBM Telco Customer Churn Dataset (`WA_Fn-UseC_-Telco-Customer-Churn.csv`)
+- **Source:** IBM Telco Customer Churn sample dataset (`WA_Fn-UseC_-Telco-Customer-Churn.csv`).
+  - *Note:* The dataset is included for reproducibility in this repository. Users should verify the applicable terms from the original dataset source before redistribution or commercial use.
 - **Raw Dimensions:** 7,043 rows × 21 columns
 - **Cleaned Dimensions:** 7,032 rows × 21 columns
 - **Target Variable:** `Churn` (`No` → 0 [73.42%], `Yes` → 1 [26.58%])
@@ -51,8 +52,9 @@ To provide decision-support capabilities for retention teams by generating proba
 
 ## 7. Feature Engineering
 Two domain-specific features were engineered prior to column transformation:
-1. `total_services`: Integer count (0 to 9) measuring breadth of active service adoption.
-2. `monthly_charges_diff`: `MonthlyCharges - (TotalCharges / (tenure + 1))`, capturing recent rate changes or expiring promotional pricing.
+1. `total_services`: Count of active subscribed services across 8 service-related columns, ranging from 0 to 8.
+2. `monthly_charges_diff`: Calculated as `MonthlyCharges - (TotalCharges / max(tenure, 1))`, capturing recent rate changes or expiring promotional pricing.
+
 
 ---
 
